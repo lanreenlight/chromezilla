@@ -17,11 +17,12 @@ ICON_EXIT="🚪"
 
 # Function to display ASCII logo and social links
 display_ascii() {
-echo -e " ${RED} _   _  ____  ____  _____   ____ _ _      _       ${RESET}"
-echo -e " ${GREEN}| \\ | |/ __ \\|  _ \\| ____| / ___| (_) ___| | __   ${RESET}"
-echo -e " ${BLUE}|  \\| | |  | | | | |  _|  | |   | | |/ __| |/ /   ${RESET}"
-echo -e " ${CYAN}| |\\  | |__| | |_| | |___ | |___| | | (__|   <    ${RESET}"
-echo -e " ${YELLOW}|_| \\_|\\____/|____/|_____| \\____|_|_|\\___|_|\\_\\   ${RESET}"
+echo -e " ${RED} _   _  ____   ____  ______ ______ _      _        ${RESET}"
+echo -e " ${GREEN}| \\ | |/ __ \\ / __ \\|  ____|  ____| |    | |       ${RESET}"
+echo -e " ${BLUE}|  \\| | |  | | |  | | |__  | |__  | |    | |       ${RESET}"
+echo -e " ${CYAN}| . \` | |  | | |  | |  __| |  __| | |    | |       ${RESET}"
+echo -e " ${YELLOW}| |\\  | |__| | |__| | |    | |____| |____| |____   ${RESET}"
+echo -e " ${MAGENTA}|_| \\_|\\____/ \\____/|_|    |______|______|______|  ${RESET}"
 echo -e " ${MAGENTA}${ICON_TELEGRAM} Follow us on Telegram: https://t.me/nodezilla ${RESET}"
 echo -e " ${MAGENTA}📢 Follow us on Discord: https://discord.gg/RAEnTZSEVh ${RESET}"
 echo -e ""
