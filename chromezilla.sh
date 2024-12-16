@@ -48,6 +48,33 @@ install_docker() {
     read -p "Press enter to continue..."
 }
 
+# Delete Docker and browser container
+delete_docker_and_browser() {
+    echo -e "${RED}🚨 Deleting Docker, Docker Compose, and the browser container...${RESET}"
+    if docker ps -a | grep -q Nodezilla101_browser; then
+        docker stop Nodezilla101_browser && docker rm Nodezilla101_browser
+        echo -e "${GREEN}✅ Browser container removed.${RESET}"
+    else
+        echo -e "${YELLOW}⚠️ No browser container found.${RESET}"
+    fi
+
+    if command -v docker-compose &> /dev/null; then
+        sudo rm -f /usr/local/bin/docker-compose
+        echo -e "${GREEN}✅ Docker Compose removed.${RESET}"
+    fi
+
+    if command -v docker &> /dev/null; then
+        sudo apt purge -y docker.io
+        sudo apt autoremove -y
+        echo -e "${GREEN}✅ Docker removed.${RESET}"
+    else
+        echo -e "${YELLOW}⚠️ Docker is not installed.${RESET}"
+    fi
+
+    echo -e "${RED}All components have been deleted.${RESET}"
+    read -p "Press enter to continue..."
+}
+
 # Main installation and setup process
 install_browser() {
     echo -e "${YELLOW}Configure environment variables for the browser:${RESET}"
@@ -100,7 +127,8 @@ while true; do
     echo -e "${CYAN}2.${RESET} ${ICON_STOP} Stop browser"
     echo -e "${CYAN}3.${RESET} ${ICON_RES} Restart browser"
     echo -e "${CYAN}4.${RESET} ${ICON_EXIT} Exit"
-    echo -ne "${YELLOW}Choose an option [1-4]:${RESET} "
+    echo -e "${CYAN}5.${RESET} 🗑️ Delete all components"
+    echo -ne "${YELLOW}Choose an option [1-5]:${RESET} "
     read choice
 
     case $choice in
@@ -117,6 +145,9 @@ while true; do
         4)
             echo -e "${RED}Exiting...${RESET}"
             exit 0
+            ;;
+        5)
+            delete_docker_and_browser
             ;;
         *)
             echo -e "${RED}Invalid input. Please try again.${RESET}"
