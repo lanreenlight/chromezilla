@@ -14,6 +14,7 @@ ICON_INSTALL="🛠️"
 ICON_STOP="⏹️"
 ICON_RES="🫡"
 ICON_EXIT="🚪"
+ICON_DEL="❌"
 
 # Function to display ASCII logo and social links
 display_ascii() {
@@ -88,7 +89,7 @@ while true; do
     echo -e "${CYAN}2.${RESET} ${ICON_STOP} Stop browser"
     echo -e "${CYAN}3.${RESET} ${ICON_RES} Restart browser"
     echo -e "${CYAN}4.${RESET} ${ICON_EXIT} Exit"
-    echo -e "${CYAN}5.${RESET} ${ICON_EXIT} Delete browser (completely)"
+    echo -e "${CYAN}5.${RESET} ${ICON_DEL} Delete browser (completely)"
     echo -ne "${YELLOW}Choose an option [1-5]:${RESET} "
     read choice
 
