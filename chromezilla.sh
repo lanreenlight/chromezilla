@@ -17,12 +17,13 @@ ICON_EXIT="🚪"
 
 # Function to display ASCII logo and social links
 display_ascii() {
-echo -e " ${RED} _   _  ____   ____  ______ ______ _      _        ${RESET}"
-echo -e " ${GREEN}| \\ | |/ __ \\ / __ \\|  ____|  ____| |    | |       ${RESET}"
-echo -e " ${BLUE}|  \\| | |  | | |  | | |__  | |__  | |    | |       ${RESET}"
-echo -e " ${CYAN}| . \` | |  | | |  | |  __| |  __| | |    | |       ${RESET}"
-echo -e " ${YELLOW}| |\\  | |__| | |__| | |    | |____| |____| |____   ${RESET}"
-echo -e " ${MAGENTA}|_| \\_|\\____/ \\____/|_|    |______|______|______|  ${RESET}"
+echo -e " ${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${RESET}"
+echo -e " ${RED}~ _   _  ___  _   _  ____  _      _      _   _        ~${RESET}"
+echo -e " ${GREEN}~| \\ | |/ _ \\| \\ | |/ ___|| |    | |    | \\ | |       ~${RESET}"
+echo -e " ${BLUE}~|  \\| | | | |  \\| | |  _ | |    | |    |  \\| |       ~${RESET}"
+echo -e " ${YELLOW}~| |\\  | |_| | |\\  | |_| || |___ | |___ | |\\  |       ~${RESET}"
+echo -e " ${MAGENTA}~|_| \\_|\\___/|_| \\_|\\____||_____||_____||_| \\_|       ~${RESET}"
+echo -e " ${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${RESET}"
 echo -e " ${MAGENTA}${ICON_TELEGRAM} Follow us on Telegram: https://t.me/nodezilla ${RESET}"
 echo -e " ${MAGENTA}📢 Follow us on Discord: https://discord.gg/RAEnTZSEVh ${RESET}"
 echo -e ""
@@ -58,9 +59,9 @@ install_browser() {
     PORT=${PORT:-10000}
 
     echo -e "${GREEN}Starting Docker container for the browser...${RESET}"
-    docker run -d --name=DK_browser \
+    docker run -d --name=Nodezilla101_browser \
         -p ${PORT}:3000 \
-        -e TITLE=DKnodes \
+        -e TITLE=Nodezilla101 \
         -e DISPLAY=:1 \
         -e PUID=1000 \
         -e PGID=1000 \
@@ -78,7 +79,7 @@ install_browser() {
 # Restart the Docker container
 restart_browser(){
     echo -e "${YELLOW}Restarting browser...${RESET}"
-    docker restart DK_browser
+    docker restart Nodezilla101_browser
     echo -e "${GREEN}✅ Browser restarted.${RESET}"
     read -p "Press enter to continue..."
 }
@@ -86,7 +87,7 @@ restart_browser(){
 # Stop the Docker container
 stop_browser() {
     echo -e "${YELLOW}Stopping the browser...${RESET}"
-    docker stop DK_browser && docker rm DK_browser
+    docker stop Nodezilla101_browser && docker rm Nodezilla101_browser
     echo -e "${GREEN}✅ Browser stopped and container removed.${RESET}"
     read -p "Press enter to continue..."
 }
