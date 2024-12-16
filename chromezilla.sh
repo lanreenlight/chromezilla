@@ -30,51 +30,6 @@ echo -e ""
 echo -e ""
 }
 
-# Check and install Docker and Docker Compose
-install_docker() {
-    echo -e "${GREEN}${ICON_INSTALL} Installing Docker and Docker Compose...${RESET}"
-    sudo apt update && sudo apt upgrade -y
-    if ! command -v docker &> /dev/null; then
-        sudo apt install docker.io -y
-        sudo systemctl start docker
-        sudo systemctl enable docker
-    fi
-    if ! command -v docker-compose &> /dev/null; then
-        sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" \
-        -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-    fi
-    echo -e "${GREEN}Docker and Docker Compose are installed.${RESET}"
-    read -p "Press enter to continue..."
-}
-
-# Delete Docker and browser container
-delete_docker_and_browser() {
-    echo -e "${RED}🚨 Deleting Docker, Docker Compose, and the browser container...${RESET}"
-    if docker ps -a | grep -q Nodezilla101_browser; then
-        docker stop Nodezilla101_browser && docker rm Nodezilla101_browser
-        echo -e "${GREEN}✅ Browser container removed.${RESET}"
-    else
-        echo -e "${YELLOW}⚠️ No browser container found.${RESET}"
-    fi
-
-    if command -v docker-compose &> /dev/null; then
-        sudo rm -f /usr/local/bin/docker-compose
-        echo -e "${GREEN}✅ Docker Compose removed.${RESET}"
-    fi
-
-    if command -v docker &> /dev/null; then
-        sudo apt purge -y docker.io
-        sudo apt autoremove -y
-        echo -e "${GREEN}✅ Docker removed.${RESET}"
-    else
-        echo -e "${YELLOW}⚠️ Docker is not installed.${RESET}"
-    fi
-
-    echo -e "${RED}All components have been deleted.${RESET}"
-    read -p "Press enter to continue..."
-}
-
 # Main installation and setup process
 install_browser() {
     echo -e "${YELLOW}Configure environment variables for the browser:${RESET}"
@@ -119,6 +74,14 @@ stop_browser() {
     read -p "Press enter to continue..."
 }
 
+# Delete the Docker container completely
+delete_browser() {
+    echo -e "${YELLOW}Deleting the browser Docker container...${RESET}"
+    docker stop Nodezilla101_browser && docker rm -v Nodezilla101_browser
+    echo -e "${GREEN}✅ Browser Docker container and associated volumes deleted.${RESET}"
+    read -p "Press enter to continue..."
+}
+
 # Main menu
 while true; do
     clear
@@ -127,7 +90,7 @@ while true; do
     echo -e "${CYAN}2.${RESET} ${ICON_STOP} Stop browser"
     echo -e "${CYAN}3.${RESET} ${ICON_RES} Restart browser"
     echo -e "${CYAN}4.${RESET} ${ICON_EXIT} Exit"
-    echo -e "${CYAN}5.${RESET} 🗑️ Delete all components"
+    echo -e "${CYAN}5.${RESET} ${ICON_EXIT} Delete browser (completely)"
     echo -ne "${YELLOW}Choose an option [1-5]:${RESET} "
     read choice
 
@@ -147,7 +110,7 @@ while true; do
             exit 0
             ;;
         5)
-            delete_docker_and_browser
+            delete_browser
             ;;
         *)
             echo -e "${RED}Invalid input. Please try again.${RESET}"
