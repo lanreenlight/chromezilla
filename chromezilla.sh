@@ -24,6 +24,8 @@ echo -e " ${MAGENTA}~${YELLOW}|  \\| | | | | | | |  _|   / / | || |   | |     / 
 echo -e " ${MAGENTA}~${CYAN}| |\\  | |_| | |_| | |___ / /_ | || |___| |___ / ___ \\ ${MAGENTA}~"
 echo -e " ${MAGENTA}~${BLUE}|_| \\_|\\___/|____/|_____/____|___|_____|_____/_/   \\_\\${MAGENTA}~"
 echo -e " ${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${RESET}"
+echo -e " ${MAGENTA}🚀 Follow us on Telegram: https://t.me/nodezilla ${RESET}"
+echo -e " ${MAGENTA}📢 Follow us on Discord: https://discord.gg/RAEnTZSEVh ${RESET}"
 }
 
 # Main installation and setup process
