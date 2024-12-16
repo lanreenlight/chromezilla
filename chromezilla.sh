@@ -18,16 +18,12 @@ ICON_EXIT="🚪"
 # Function to display ASCII logo and social links
 display_ascii() {
 echo -e " ${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${RESET}"
-echo -e " ${RED}~ _   _  ___  _   _  ____  _      _      _   _        ~${RESET}"
-echo -e " ${GREEN}~| \\ | |/ _ \\| \\ | |/ ___|| |    | |    | \\ | |       ~${RESET}"
-echo -e " ${BLUE}~|  \\| | | | |  \\| | |  _ | |    | |    |  \\| |       ~${RESET}"
-echo -e " ${YELLOW}~| |\\  | |_| | |\\  | |_| || |___ | |___ | |\\  |       ~${RESET}"
-echo -e " ${MAGENTA}~|_| \\_|\\___/|_| \\_|\\____||_____||_____||_| \\_|       ~${RESET}"
+echo -e " ${MAGENTA}~ ${RED}_   _  ___  ____  _____ ________ _     _        _    ${MAGENTA}~"
+echo -e " ${MAGENTA}~${GREEN}| \\ | |/ _ \\|  _ \\| ____|__  /_ _| |   | |      / \\   ${MAGENTA}~"
+echo -e " ${MAGENTA}~${YELLOW}|  \\| | | | | | | |  _|   / / | || |   | |     / _ \\  ${MAGENTA}~"
+echo -e " ${MAGENTA}~${CYAN}| |\\  | |_| | |_| | |___ / /_ | || |___| |___ / ___ \\ ${MAGENTA}~"
+echo -e " ${MAGENTA}~${BLUE}|_| \\_|\\___/|____/|_____/____|___|_____|_____/_/   \\_\\${MAGENTA}~"
 echo -e " ${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${RESET}"
-echo -e " ${MAGENTA}${ICON_TELEGRAM} Follow us on Telegram: https://t.me/nodezilla ${RESET}"
-echo -e " ${MAGENTA}📢 Follow us on Discord: https://discord.gg/RAEnTZSEVh ${RESET}"
-echo -e ""
-echo -e ""
 }
 
 # Main installation and setup process
