@@ -25,8 +25,8 @@ echo -e " ${MAGENTA}~${YELLOW}|  \\| | | | | | | |  _|   / / | || |   | |     / 
 echo -e " ${MAGENTA}~${CYAN}| |\\  | |_| | |_| | |___ / /_ | || |___| |___ / ___ \\ ${MAGENTA}~"
 echo -e " ${MAGENTA}~${BLUE}|_| \\_|\\___/|____/|_____/____|___|_____|_____/_/   \\_\\ ${MAGENTA}~"
 echo -e " ${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${RESET}"
-echo "Join Nodzillaz on Telegram: https://t.me/nodezilla101"
-echo "Join Nodzillaz on Discord: https://discord.gg/RAEnTZSEVh"
+echo -e " ${MAGENTA}🚀 Join Nodzillaz on Telegram: https://t.me/nodezilla101 ${RESET}"
+echo -e " ${MAGENTA}📢 Join Nodzillaz on Discord: https://discord.gg/RAEnTZSEVh ${RESET}"
 }
 
 # Check and install Docker and Docker Compose
