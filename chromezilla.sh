@@ -29,6 +29,24 @@ echo -e " ${MAGENTA}🚀 Follow us on Telegram: https://t.me/nodezilla ${RESET}"
 echo -e " ${MAGENTA}📢 Follow us on Discord: https://discord.gg/RAEnTZSEVh ${RESET}"
 }
 
+# Check and install Docker and Docker Compose
+install_docker() {
+    echo -e "${GREEN}${ICON_INSTALL} Installing Docker and Docker Compose...${RESET}"
+    sudo apt update && sudo apt upgrade -y
+    if ! command -v docker &> /dev/null; then
+        sudo apt install docker.io -y
+        sudo systemctl start docker
+        sudo systemctl enable docker
+    fi
+    if ! command -v docker-compose &> /dev/null; then
+        sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" \
+        -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+    fi
+    echo -e "${GREEN}Docker and Docker Compose are installed.${RESET}"
+    read -p "Press enter to continue..."
+}
+
 # Main installation and setup process
 install_browser() {
     echo -e "${YELLOW}Configure environment variables for the browser:${RESET}"
